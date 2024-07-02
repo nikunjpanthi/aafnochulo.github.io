@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey; 
+}
+
+header {
+    background-image: url('headerimg.jpg');
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    repeat: no-repeat;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: darkslategrey;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+}
+
+.search-container button {
+    padding: 5px 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: darkgreen;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.menu .menu-item {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 10px 0;
+    padding: 20px;
+    width: calc(30% - 20px);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.menu .menu-item img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.menu .menu-item:hover {
+    transform: scale(0.95);
+}
+
+.menu .menu-item:hover img {
+    transform: scale(0.9);
+}
+
+.menu .menu-item h3 {
+    margin: 10px 0;
+}
+
+.menu .menu-item p {
+    color: #777;
+}
+
+.menu .menu-item .add-to-cart-btn {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.menu .menu-item .add-to-cart-btn:hover {
+    background-color: darkgreen;
+}
+
+.browse-more {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.browse-more .browse-more-btn {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.browse-more .browse-more-btn:hover {
+    background-color: darkblue;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
