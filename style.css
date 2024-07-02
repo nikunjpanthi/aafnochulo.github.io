@@ -3,12 +3,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: lightgrey; /* Changed from #f4f4f4 */
+    background-color: lightgrey;
 }
 
 header {
+    background-image: url('headerimg.jpg');
     background-color: #333;
-    color: white; /* Changed from #fff */
+    color: white; 
     padding: 10px 0;
     text-align: center;
 }
@@ -16,25 +17,25 @@ header {
 nav {
     display: flex;
     justify-content: center;
-    background-color: dimgray; /* Changed from #444 */
+    background-color: dimgray;
     padding: 10px;
 }
 
 nav a {
-    color: white; /* Changed from #fff */
+    color: white;
     padding: 10px 20px;
     text-decoration: none;
 }
 
 nav a:hover {
-    background-color: darkslategrey; /* Changed from #555 */
+    background-color: darkslategrey;
 }
 
 .container {
     width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background-color: white; /* Changed from #fff */
+    background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -42,7 +43,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     background-color: #333;
-    color: white; /* Changed from #fff */
+    color: white;
 }
 
 /* Recommendations Section */
@@ -54,7 +55,7 @@ footer {
 }
 
 .recommendations .menu-item {
-    background-color: white; /* Changed from #fff */
+    background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     margin: 10px;
     padding: 20px;
@@ -77,15 +78,15 @@ footer {
 
 .recommendations .menu-item .add-to-cart-btn {
     padding: 10px;
-    background-color: green; /* Changed from #28a745 */
-    color: white; /* Changed from #fff */
+    background-color: green;
+    color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .recommendations .menu-item .add-to-cart-btn:hover {
-    background-color: darkgreen; /* Changed from #218838 */
+    background-color: darkgreen;
 }
 
 .browse-more {
@@ -95,13 +96,13 @@ footer {
 
 .browse-more .browse-more-btn {
     padding: 10px 20px;
-    background-color: blue; /* Changed from #007bff */
-    color: white; /* Changed from #fff */
+    background-color: blue;
+    color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .browse-more .browse-more-btn:hover {
-    background-color: darkblue; /* Changed from #0056b3 */
+    background-color: darkblue;
 }
