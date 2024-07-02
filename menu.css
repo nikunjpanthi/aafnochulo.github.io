@@ -14,12 +14,16 @@ header {
     repeat: no-repeat;
 }
 
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: red;
     padding: 10px;
+}
+.topp{
+    display:flex;
 }
 
 nav a {
