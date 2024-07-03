@@ -105,7 +105,7 @@ footer {
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+  
 }
 
 .browse-more .browse-more-btn:hover {
