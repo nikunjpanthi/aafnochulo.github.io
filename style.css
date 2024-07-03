@@ -101,7 +101,7 @@ footer {
 
 .browse-more .browse-more-btn {
     padding: 10px 20px;
-    background-color: blue;
+    background-color: red;
     color: white;
     border: none;
     cursor: pointer;
@@ -109,5 +109,5 @@ footer {
 }
 
 .browse-more .browse-more-btn:hover {
-    background-color: darkblue;
+    background-color: green;
 }
