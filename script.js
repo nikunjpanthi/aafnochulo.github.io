@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 addButton.addEventListener('click', function() {
                     const quantity = parseInt(quantityInput.value);
                     addItemToCart(itemName, itemPrice, quantity);
+
+                    // Remove quantity input and add button after adding to cart
+                    menuItem.removeChild(quantityInput);
+                    menuItem.removeChild(addButton);
                 });
             }
         });
