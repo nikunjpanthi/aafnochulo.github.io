@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartButtons = document.querySelectorAll('.add-to-cart-btn');
 
     cartButtons.forEach(button => {
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     addItemToCart(itemName, itemPrice, quantity);
 
                     // Remove quantity input and add button after adding to cart
-                    menuItem.removeChild(quantityInput);
-                    menuItem.removeChild(addButton);
+                    quantityInput.remove();
+                    addButton.remove();
                 });
             }
         });
@@ -39,9 +39,57 @@ document.addEventListener('DOMContentLoaded', function() {
         if (cartItem) {
             cartItem.quantity += quantity;
         } else {
-            cart.push({ name, price, quantity });
+            cart.push({ name, price
+, quantity });
         }
         localStorage.setItem('cart', JSON.stringify(cart));
         alert('Item added to cart');
+    }
+
+    if (window.location.pathname.endsWith('order.html')) {
+        displayOrder();
+        clearCartOnReload();
+    }
+
+    function displayOrder() {
+        const orderList = document.querySelector('#order-list');
+        const orderTotal = document.querySelector('#order-total');
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `${item.name} - ${item.quantity} x ${item.price} = ${(item.quantity * item.price).toFixed(2)}
+                <button class="remove-item-btn" data-index="${index}">Remove</button>`;
+            orderList.appendChild(listItem);
+            total += item.quantity * item.price;
+        });
+
+        orderTotal.innerText = `Total: ${total.toFixed(2)}`;
+
+        const removeButtons = document.querySelectorAll('.remove-item-btn');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const index = parseInt(button.getAttribute('data-index'));
+                removeItemFromCart(index);
+            });
+        });
+
+        const checkoutButton = document.querySelector('#checkout-btn');
+        checkoutButton.addEventListener('click', function() {
+            alert('Proceeding to checkout');
+            localStorage.removeItem('cart');
+            cart = [];
+            displayOrder();
+        });
+    }
+
+    function removeItemFromCart(index) {
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayOrder();
+    }
+
+    function clearCartOnReload() {
+        localStorage.removeItem('cart');
     }
 });
