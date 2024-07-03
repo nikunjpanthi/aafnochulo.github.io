@@ -6,10 +6,15 @@ body {
     background-color: lightgrey;
 }
 
-header {
+.header-nav-container {
     background-image: url('headerimg.jpg');
-    background-color: #333;
-    color: white; 
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.5); 
     padding: 10px 0;
     text-align: center;
 }
@@ -17,7 +22,7 @@ header {
 nav {
     display: flex;
     justify-content: center;
-    background-color: dimgray;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: to add a semi-transparent overlay */
     padding: 10px;
 }
 
@@ -92,7 +97,6 @@ footer {
 .browse-more {
     text-align: center;
     margin-top: 20px;
-    color: white;
 }
 
 .browse-more .browse-more-btn {
