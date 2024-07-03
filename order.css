@@ -1,4 +1,4 @@
-/* General Styling */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -62,9 +62,25 @@ footer {
     margin: 5px 0;
     padding: 10px;
     border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #order-total {
     font-weight: bold;
     margin-top: 20px;
+}
+
+#checkout-btn {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#checkout-btn:hover {
+    background-color: darkgreen;
 }
