@@ -1,0 +1,82 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+}
+
+.header-nav-container {
+    background-image: url('headerimg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: to add a semi-transparent overlay */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: to add a semi-transparent overlay */
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: darkslategrey;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: darkgreen;
+}
