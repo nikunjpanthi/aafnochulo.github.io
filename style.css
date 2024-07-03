@@ -7,7 +7,7 @@ body {
 }
 
 .header-nav-container {
-    background-image: url('headerimg.jpg');
+    background-image: url('banner.jpg');
     background-size: cover;
     background-position: center;
     color: white;
