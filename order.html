@@ -24,26 +24,11 @@
         <h2>Your Order</h2>
         <ul id="order-list"></ul>
         <p id="order-total">Total: 0.00</p>
+        <button id="checkout-btn">Checkout</button>
     </div>
     <footer>
         <p>&copy; 2024 Aafno Chulo. All rights reserved.</p>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const orderList = document.querySelector('#order-list');
-            const orderTotal = document.querySelector('#order-total');
-            let total = 0;
-
-            cart.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.innerText = `${item.name} - ${item.quantity} x ${item.price} = ${(item.quantity * item.price).toFixed(2)}`;
-                orderList.appendChild(listItem);
-                total += item.quantity * item.price;
-            });
-
-            orderTotal.innerText = `Total: ${total.toFixed(2)}`;
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
