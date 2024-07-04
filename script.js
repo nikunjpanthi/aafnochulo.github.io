@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 addButton.addEventListener('click', function() {
                     const quantity = parseInt(quantityInput.value);
                     addItemToCart(itemName, itemPrice, quantity);
+                    displayMessage(itemName, quantity); // Display message after adding to cart
 
                     // Remove quantity input and add button after adding to cart
                     quantityInput.remove();
@@ -43,8 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
             cart.push({ name, price, quantity });
         }
         localStorage.setItem('cart', JSON.stringify(cart));
-        alert('Item added to cart');
-        updateCartLinkVisibility();
+        updateCartLinkVisibility(); // Update visibility of "Go to Cart" link
+    }
+
+    function displayMessage(itemName, quantity) {
+        alert(`${quantity} ${itemName}(s) added to cart`);
+    }
+
+    function updateCartLinkVisibility() {
+        const cartLink = document.getElementById('go-to-cart');
+        if (cart.length > 0) {
+            cartLink.style.display = 'block'; // Show link if cart is not empty
+        } else {
+            cartLink.style.display = 'none'; // Hide link if cart is empty
+        }
+    }
+
+    // Function to generate unique order number
+    function generateOrderNumber() {
+        orderNumber += 1;
+        localStorage.setItem('orderNumber', orderNumber);
+        return orderNumber;
     }
 
     // Function to display order on order.html
@@ -76,7 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const checkoutButton = document.querySelector('#checkout-btn');
         checkoutButton.addEventListener('click', function() {
-            // Redirect to payment.html
+            const currentOrderNumber = generateOrderNumber();
+            localStorage.setItem('currentOrderNumber', currentOrderNumber);
             window.location.href = 'payment.html';
         });
     }
@@ -86,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
         displayOrder();
-        updateCartLinkVisibility();
+        updateCartLinkVisibility(); // Update visibility of "Go to Cart" link
     }
 
     // Function to clear cart on reload
@@ -135,32 +156,4 @@ document.addEventListener('DOMContentLoaded', function() {
             qrCodeContainer.style.display = 'block';
         });
     }
-
-    // Function to generate unique order number
-    function generateOrderNumber() {
-        orderNumber += 1;
-        localStorage.setItem('orderNumber', orderNumber);
-        return orderNumber;
-    }
-
-    // Redirect to payment page and store order number
-    const checkoutButton = document.querySelector('#checkout-btn');
-    checkoutButton.addEventListener('click', function() {
-        const currentOrderNumber = generateOrderNumber();
-        localStorage.setItem('currentOrderNumber', currentOrderNumber);
-        window.location.href = 'payment.html';
-    });
-
-    // Update visibility of "Go to Cart" link
-    function updateCartLinkVisibility() {
-        const cartLink = document.getElementById('go-to-cart');
-        if (cart.length > 0) {
-            cartLink.style.display = 'block';
-        } else {
-            cartLink.style.display = 'none';
-        }
-    }
-
-    // Update cart link visibility initially
-    updateCartLinkVisibility();
 });
