@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         localStorage.setItem('cart', JSON.stringify(cart));
         alert('Item added to cart');
+        updateCartLinkVisibility();
     }
 
     // Function to display order on order.html
@@ -85,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
         displayOrder();
+        updateCartLinkVisibility();
     }
 
     // Function to clear cart on reload
