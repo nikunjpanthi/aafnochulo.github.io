@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (cartItem) {
             cartItem.quantity += quantity;
         } else {
-            cart.push({ name, price
-, quantity });
+            cart.push({ name, price, quantity });
         }
         localStorage.setItem('cart', JSON.stringify(cart));
         alert('Item added to cart');
@@ -55,6 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const orderList = document.querySelector('#order-list');
         const orderTotal = document.querySelector('#order-total');
         let total = 0;
+
+        // Clear existing list items before updating
+        orderList.innerHTML = '';
 
         cart.forEach((item, index) => {
             const listItem = document.createElement('li');
@@ -76,10 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const checkoutButton = document.querySelector('#checkout-btn');
         checkoutButton.addEventListener('click', function() {
-            alert('Proceeding to checkout');
-            localStorage.removeItem('cart');
-            cart = [];
-            displayOrder();
+            // Redirect to payment.html
+            window.location.href = 'payment.html';
         });
     }
 
