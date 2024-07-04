@@ -1,53 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Aafno Chulo</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="header-nav-container">
-        <header>
-            <h1>Welcome to Aafno Chulo</h1>
-        </header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="order.html">Order</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </div>
-    <div class="container">
-        <h2>Recommendations</h2>
-        <div class="recommendations">
-            <div class="menu-item">
-                <img src="momos.jpg" alt="Chicken MoMo">
-                <h3>Chicken MoMo</h3>
-                <p>1 plate @ 140</p>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <img src="chow (2).jpg" alt="Chowmein">
-                <h3>Chowmein</h3>
-                <p>1 Plate @ 100</p>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-            <div class="menu-item">
-                <img src="Biryani.jpg" alt="Chicken Dum Biryani">
-                <h3>Chicken Dum Biryani</h3>
-                <p>Family pack @ 1500</p>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-        </div>
-        <div class="browse-more">
-            <button class="browse-more-btn"><a href="menu.html">Browse More</a></button>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2024 Aafno Chulo. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+}
+
+.header-nav-container {
+    background-image: url('headerimg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: darkslategrey;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+
+#payment-form {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#payment-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#payment-form input,
+#payment-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+#payment-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#payment-form button:hover {
+    background-color: #45a049;
+}
+
+#qr-code-container {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#qr-code {
+    max-width: 100%;
+}
+
+/* Other styles as needed */
