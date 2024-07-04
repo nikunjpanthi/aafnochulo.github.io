@@ -45,11 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Item added to cart');
     }
 
-    if (window.location.pathname.endsWith('order.html')) {
-        displayOrder();
-        clearCartOnReload();
-    }
-
+    // Function to display order on order.html
     function displayOrder() {
         const orderList = document.querySelector('#order-list');
         const orderTotal = document.querySelector('#order-total');
@@ -83,48 +79,57 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to remove item from cart
     function removeItemFromCart(index) {
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
         displayOrder();
     }
 
+    // Function to clear cart on reload
     function clearCartOnReload() {
         localStorage.removeItem('cart');
     }
-});
-document.addEventListener('DOMContentLoaded', function() {
+
+    // Check if on order.html and display order
+    if (window.location.pathname.endsWith('order.html')) {
+        displayOrder();
+        clearCartOnReload();
+    }
+
+    // Handle payment form submission on payment.html
     const paymentForm = document.getElementById('payment-form');
     const qrCodeContainer = document.getElementById('qr-code-container');
     const qrCodeImg = document.getElementById('qr-code');
 
-    paymentForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        // Get form data
-        const phoneNumber = document.getElementById('phone-number').value;
-        const address = document.getElementById('address').value;
-        const landmark = document.getElementById('landmark').value;
-        const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+    if (paymentForm) {
+        paymentForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Get form data
+            const phoneNumber = document.getElementById('phone-number').value;
+            const address = document.getElementById('address').value;
+            const landmark = document.getElementById('landmark').value;
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
 
-        // Validate form data (example validation)
-        if (!phoneNumber || !address || !paymentMethod) {
-            alert('Please fill in all required fields.');
-            return;
-        }
+            // Validate form data (example validation)
+            if (!phoneNumber || !address || !paymentMethod) {
+                alert('Please fill in all required fields.');
+                return;
+            }
 
-        // Simulate generating QR code based on payment method
-        let qrCodeUrl = '';
-        if (paymentMethod === 'esewa') {
-            // Generate eSewa QR code URL
-            qrCodeUrl = 'https://example.com/esewa-qr-code'; // Replace with actual URL or logic
-        } else if (paymentMethod === 'khalti') {
-            // Generate Khalti QR code URL
-            qrCodeUrl = 'https://example.com/khalti-qr-code'; // Replace with actual URL or logic
-        }
+            // Simulate generating QR code based on payment method
+            let qrCodeUrl = '';
+            if (paymentMethod === 'esewa') {
+                // Generate eSewa QR code URL
+                qrCodeUrl = 'https://example.com/esewa-qr-code'; // Replace with actual URL or logic
+            } else if (paymentMethod === 'khalti') {
+                // Generate Khalti QR code URL
+                qrCodeUrl = 'https://example.com/khalti-qr-code'; // Replace with actual URL or logic
+            }
 
-        // Display QR code
-        qrCodeImg.src = qrCodeUrl;
-        qrCodeContainer.style.display = 'block';
-    });
+            // Display QR code
+            qrCodeImg.src = qrCodeUrl;
+            qrCodeContainer.style.display = 'block';
+        });
+    }
 });
-
