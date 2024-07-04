@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment - Aafno Chulo</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="payment.css">
 </head>
 <body>
     <div class="header-nav-container">
         <header>
-            <h1>Payment</h1>
+            <h1>Payment for Aafno Chulo</h1>
         </header>
         <nav>
             <a href="index.html">Home</a>
@@ -23,37 +22,34 @@
     <div class="container">
         <h2>Enter Payment Details</h2>
         <form id="payment-form">
-            <label for="phone-number">Phone Number:</label>
-            <input type="text" id="phone-number" name="phone-number" required>
+            <label for="phone-number">Phone Number:</label><br>
+            <input type="text" id="phone-number" name="phone-number" required><br><br>
 
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required>
+            <label for="address">Address:</label><br>
+            <textarea id="address" name="address" rows="4" cols="50" required></textarea><br><br>
 
-            <label for="landmark">Nearest Landmark:</label>
-            <input type="text" id="landmark" name="landmark">
+            <label for="landmark">Landmark:</label><br>
+            <input type="text" id="landmark" name="landmark"><br><br>
 
-            <div id="payment-options">
-                <label>Payment Options:</label>
-                <label>
-                    <input type="radio" name="payment-method" value="esewa">
-                    eSewa
-                </label>
-                <label>
-                    <input type="radio" name="payment-method" value="khalti">
-                    Khalti
-                </label>
-            </div>
-
-            <div id="qr-code-container">
-                <img src="QR.jpg" id="qr-code" alt="QR Code">
-            </div>
+            <label>Payment Method:</label><br>
+            <input type="radio" id="esewa" name="payment-method" value="esewa" required>
+            <label for="esewa">eSewa</label><br>
+            <input type="radio" id="khalti" name="payment-method" value="khalti" required>
+            <label for="khalti">Khalti</label><br><br>
 
             <button type="submit">Pay Now</button>
         </form>
+        
+        <div id="qr-code-container" style="display: none;">
+            <h2>Scan QR Code to Complete Payment</h2>
+            <img id="qr-code" src="" alt="QR Code">
+        </div>
     </div>
+
     <footer>
         <p>&copy; 2024 Aafno Chulo. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
