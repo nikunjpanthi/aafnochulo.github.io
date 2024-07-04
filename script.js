@@ -93,3 +93,38 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('cart');
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const paymentForm = document.getElementById('payment-form');
+    const qrCodeContainer = document.getElementById('qr-code-container');
+    const qrCodeImg = document.getElementById('qr-code');
+
+    paymentForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Get form data
+        const phoneNumber = document.getElementById('phone-number').value;
+        const address = document.getElementById('address').value;
+        const landmark = document.getElementById('landmark').value;
+        const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+        // Validate form data (example validation)
+        if (!phoneNumber || !address || !paymentMethod) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        // Simulate generating QR code based on payment method
+        let qrCodeUrl = '';
+        if (paymentMethod === 'esewa') {
+            // Generate eSewa QR code URL
+            qrCodeUrl = 'https://example.com/esewa-qr-code'; // Replace with actual URL or logic
+        } else if (paymentMethod === 'khalti') {
+            // Generate Khalti QR code URL
+            qrCodeUrl = 'https://example.com/khalti-qr-code'; // Replace with actual URL or logic
+        }
+
+        // Display QR code
+        qrCodeImg.src = qrCodeUrl;
+        qrCodeContainer.style.display = 'block';
+    });
+});
+
