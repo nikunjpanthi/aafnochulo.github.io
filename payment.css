@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+}
+
+.header-nav-container {
+    background-image: url('headerimg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: darkslategrey;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+
+#payment-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#payment-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#payment-form input[type="text"], 
+#payment-form input[type="number"],
+#payment-form input[type="radio"],
+#payment-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    display: block; /* Ensure elements stack vertically */
+}
+
+#payment-options {
+    margin-bottom: 20px;
+}
+
+#qr-code-container {
+    text-align: center;
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+}
+
+#qr-code {
+    max-width: 100%;
+    height: auto;
+}
