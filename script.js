@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
             cart.push({ name, price, quantity });
         }
         localStorage.setItem('cart', JSON.stringify(cart));
-        alert('Item added to cart');
-        updateCartLinkVisibility(); // Update visibility of "Go to Cart" link
+        alert('Item added to order');
+        updateOrder(); // Update order section
     }
 
     // Function to display order on order.html
@@ -48,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
         displayOrder();
+    }
+
+    // Function to update order section
+    function updateOrder() {
+        displayOrder();
         updateCartLinkVisibility(); // Update visibility of "Go to Cart" link
     }
 
@@ -72,9 +77,20 @@ document.addEventListener('DOMContentLoaded', function() {
         clearCartOnReload();
     }
 
-    // Handle "Add to Cart" button clicks in index.html
-    const cartButtons = document.querySelectorAll('.add-to-cart-btn');
-    cartButtons.forEach(button => {
+    // Handle "Add to Order" button clicks in index.html
+    const orderButtons = document.querySelectorAll('.add-to-order-btn');
+    orderButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const menuItem = button.parentElement;
+            const itemName = menuItem.querySelector('h3').innerText;
+            const itemPrice = parseFloat(menuItem.querySelector('p').innerText.split('@')[1].trim());
+            addItemToCart(itemName, itemPrice);
+        });
+    });
+
+    // Handle "Add to Order" button clicks in menu.html
+    const menuButtons = document.querySelectorAll('.add-to-order-btn');
+    menuButtons.forEach(button => {
         button.addEventListener('click', function() {
             const menuItem = button.parentElement;
             const itemName = menuItem.querySelector('h3').innerText;
