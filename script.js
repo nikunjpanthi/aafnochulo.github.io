@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         clearCartOnReload();
     }
 
-    // Handle "Add to Order" button clicks in menu.html and index.html
+    // Handle "Add to Order" button clicks in menu.html
     const addToOrderButtons = document.querySelectorAll('.add-to-order-btn');
     addToOrderButtons.forEach(button => {
         button.addEventListener('click', function(event) {
@@ -86,38 +86,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle payment form submission on payment.html
-    const paymentForm = document.getElementById('payment-form');
-    if (paymentForm) {
-        paymentForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Get form data
-            const phoneNumber = document.getElementById('phone-number').value;
-            const address = document.getElementById('address').value;
-            const landmark = document.getElementById('landmark').value;
-            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
-
-            // Validate form data (example validation)
-            if (!phoneNumber || !address || !paymentMethod) {
-                alert('Please fill in all required fields.');
-                return;
+    // Function to filter menu items based on search input
+    function filterMenuItems(searchTerm) {
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            const itemName = item.querySelector('h3').innerText.toLowerCase();
+            if (itemName.includes(searchTerm.toLowerCase())) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
             }
-
-            // Simulate generating QR code based on payment method
-            let qrCodeUrl = '';
-            if (paymentMethod === 'esewa') {
-                // Generate eSewa QR code URL
-                qrCodeUrl = 'https://example.com/esewa-qr-code'; // Replace with actual URL or logic
-            } else if (paymentMethod === 'khalti') {
-                // Generate Khalti QR code URL
-                qrCodeUrl = 'https://example.com/khalti-qr-code'; // Replace with actual URL or logic
-            }
-
-            // Display QR code
-            const qrCodeImg = document.getElementById('qr-code');
-            qrCodeImg.src = qrCodeUrl;
-            const qrCodeContainer = document.getElementById('qr-code-container');
-            qrCodeContainer.style.display = 'block';
         });
     }
+
+    // Handle keyup event on search input
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = searchInput.value.trim();
+            filterMenuItems(searchTerm);
+        });
+    }
+
+    // Function to show all menu items
+    function showAllMenuItems() {
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.style.display = 'block';
+        });
+    }
+
+    // Initialize by showing all menu items
+    showAllMenuItems();
 });
