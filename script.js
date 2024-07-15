@@ -2,14 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize cart from localStorage or as an empty array
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Menu items data (you can replace this with actual data if it's from a database or backend)
-    const menuItems = [
-        { name: 'Chicken MoMo', price: 140 },
-        { name: 'Chicken Biryani', price: 1500 },
-        { name: 'Chicken Chowmein', price: 100 }
-        // Add more menu items as needed
-    ];
-
     // Function to add item to cart
     function addItemToCart(name, price, quantity = 1) {
         const cartItem = cart.find(item => item.name === name);
@@ -20,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         localStorage.setItem('cart', JSON.stringify(cart));
         alert('Item added to order');
-        updateOrder(); // Update order section
+        displayOrder();
+        updateCartLinkVisibility(); // Update visibility of "Go to Cart" link
     }
 
     // Function to display order on order.html
@@ -56,11 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
         displayOrder();
-    }
-
-    // Function to update order section
-    function updateOrder() {
-        displayOrder();
         updateCartLinkVisibility(); // Update visibility of "Go to Cart" link
     }
 
@@ -85,45 +73,18 @@ document.addEventListener('DOMContentLoaded', function() {
         clearCartOnReload();
     }
 
-    // Function to handle menu item search
-    function handleSearch() {
-        const searchInput = document.getElementById('menu-search');
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        const searchResults = menuItems.filter(item =>
-            item.name.toLowerCase().includes(searchTerm)
-        );
-        displaySearchResults(searchResults);
-    }
+    // Handle "Add to Order" button clicks in menu.html and index.html
+    const addToOrderButtons = document.querySelectorAll('.add-to-order-btn');
+    addToOrderButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
 
-    // Function to display search results
-    function displaySearchResults(results) {
-        const searchResultsContainer = document.getElementById('search-results');
-        searchResultsContainer.innerHTML = '';
-
-        if (results.length === 0) {
-            searchResultsContainer.innerHTML = '<p>No results found.</p>';
-        } else {
-            results.forEach(item => {
-                const menuItem = document.createElement('div');
-                menuItem.classList.add('menu-item');
-                menuItem.innerHTML = `
-                    <h3>${item.name}</h3>
-                    <p>Price: ${item.price}</p>
-                    <button class="add-to-order-btn">Add to Order</button>
-                `;
-                searchResultsContainer.appendChild(menuItem);
-
-                const addButton = menuItem.querySelector('.add-to-order-btn');
-                addButton.addEventListener('click', function() {
-                    addItemToCart(item.name, item.price);
-                });
-            });
-        }
-    }
-
-    // Event listener for search input
-    const searchInput = document.getElementById('menu-search');
-    searchInput.addEventListener('input', handleSearch);
+            const menuItem = button.closest('.menu-item');
+            const itemName = menuItem.querySelector('h3').innerText;
+            const itemPrice = parseFloat(menuItem.querySelector('p').innerText.split('@')[1].trim());
+            addItemToCart(itemName, itemPrice);
+        });
+    });
 
     // Handle payment form submission on payment.html
     const paymentForm = document.getElementById('payment-form');
