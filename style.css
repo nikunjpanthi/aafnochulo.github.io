@@ -109,4 +109,11 @@ footer {
 .browse-more .browse-more-btn:hover {
     background-color: green;
 }
+/* index.css */
+
+/* Adjust image sizes to fit three items per row */
+.menu-item img {
+    max-width: 30%; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
 
