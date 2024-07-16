@@ -2,68 +2,47 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: lightgrey; 
+    background-color: #f4f4f4;
 }
 
 header {
-    background-image: url('headerimg.jpg');
     background-color: #333;
-    color: white;
+    color: #fff;
     padding: 10px 0;
     text-align: center;
-    repeat: no-repeat;
 }
-
 
 nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: red;
+    justify-content: center;
+    background-color: #444;
     padding: 10px;
-}
-.topp{
-    display:flex;
 }
 
 nav a {
-    color: white;
+    color: #fff;
     padding: 10px 20px;
     text-decoration: none;
 }
 
 nav a:hover {
-    background-color: darkslategrey;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-}
-
-.search-container input[type="text"] {
-    padding: 5px;
-    font-size: 16px;
-    border: none;
-    border-radius: 3px;
-}
-
-.search-container button {
-    padding: 5px 10px;
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.search-container button:hover {
-    background-color: darkgreen;
+    background-color: #555;
 }
 
 .container {
     width: 80%;
     margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .menu {
@@ -72,70 +51,53 @@ nav a:hover {
     justify-content: space-between;
 }
 
-.menu .menu-item {
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin: 10px 0;
-    padding: 20px;
-    width: calc(30% - 20px);
+.menu-item {
+    width: 30%;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    padding: 10px;
 }
 
-.menu .menu-item img {
+.menu-item img {
     max-width: 100%;
     height: auto;
-    transition: transform 0.3s ease;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
 }
 
-.menu .menu-item:hover {
-    transform: scale(0.95);
-}
-
-.menu .menu-item:hover img {
-    transform: scale(0.9);
-}
-
-.menu .menu-item h3 {
+.menu-item h3 {
+    font-size: 1.2em;
     margin: 10px 0;
 }
 
-.menu .menu-item p {
-    color: #777;
+.menu-item p {
+    margin: 10px 0;
 }
 
-.menu .menu-item .add-to-cart-btn {
-    padding: 10px;
-    background-color: green;
-    color: white;
+.add-to-order-btn {
+    background-color: #28a745;
+    color: #fff;
     border: none;
-    cursor: pointer;
-}
-
-.menu .menu-item .add-to-cart-btn:hover {
-    background-color: darkgreen;
-}
-
-.browse-more {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.browse-more .browse-more-btn {
     padding: 10px 20px;
-    background-color: blue;
-    color: white;
-    border: none;
     cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
-.browse-more .browse-more-btn:hover {
-    background-color: darkblue;
+.add-to-order-btn:hover {
+    background-color: #218838;
 }
 
 footer {
-    text-align: center;
-    padding: 20px 0;
     background-color: #333;
-    color: white;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
