@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         clearCartOnReload();
     }
 
-    // Handle "Add to Order" button clicks in menu.html
+    // Handle "Add to Order" button clicks in menu.html and index.html
     const addToOrderButtons = document.querySelectorAll('.add-to-order-btn');
     addToOrderButtons.forEach(button => {
         button.addEventListener('click', function(event) {
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const menuItems = document.querySelectorAll('.menu-item');
         menuItems.forEach(item => {
             const itemName = item.querySelector('h3').innerText.toLowerCase();
-            if (itemName.includes(searchTerm.toLowerCase())) {
+            if (itemName.startsWith(searchTerm.toLowerCase())) {
                 item.style.display = 'block';
             } else {
                 item.style.display = 'none';
