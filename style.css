@@ -52,7 +52,7 @@ footer {
 
 /* Recommendations Section */
 .recommendations {
-    display: flex;
+    display: inline-block;
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 20px;
