@@ -57,8 +57,11 @@ footer {
     flex-wrap: wrap;
     margin-top: 20px;
 }
-
+.menu-item{
+    display:flex;
+}
 .recommendations .menu-item {
+    display:flex;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 1px;
